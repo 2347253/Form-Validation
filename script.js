@@ -80,8 +80,12 @@ function checkAge(input) {
 
   if (age < 18) {
     showError(input, "You must be at least 18 years old");
+  } else if (dateAge.value === "") {
+    showError(dateAge, "Date of birth is required");
+  } else if (new Date(dateAge.value) > new Date()) {
+    showError(dateAge, "Date of birth must be before today");
   } else {
-    showSuccess(input);
+    showSuccess(dateAge);
   }
 }
 
